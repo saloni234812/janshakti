@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>जनशक्ति (JanaShakti) — Citizen River Intelligence &amp; Action Platform</title>
+  
+  <!-- PWA Meta -->
+  <link rel="manifest" href="/static/manifest.json">
+  <meta name="theme-color" content="#09131f">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="icon" type="image/svg+xml" href="/static/map.svg">
+
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+  <!-- Top App Navigation Bar -->
+  <header class="app-header">
+    <div class="brand-wrapper">
+      <div class="brand-icon">🌊</div>
+      <div class="brand-text">
+        <h1>जनशक्ति (JanaShakti)</h1>
+        <span>Citizen River Intelligence &amp; Rejuvenation</span>
+      </div>
+    </div>
+
+    <div class="header-actions">
+      <!-- Connectivity Indicator -->
+      <div class="status-indicator">
+        <span class="pulse-dot" id="networkPulseDot"></span>
+        <span id="networkStatusText">Online</span>
+      </div>
+
+      <!-- Sync Queue Indicator -->
+      <div class="sync-badge">
+        <span>Offline Queue:</span>
+        <strong id="pendingSyncCount">0</strong>
+      </div>
+
+      <button id="btnSyncNow" class="btn-sync" onclick="triggerSync()" style="display: none;">
+        ⚡ Sync Now
+      </button>
+    </div>
+  </header>
+
+  <!-- Navigation Tabs -->
+  <nav class="nav-tabs">
+    <button class="nav-tab active" data-tab="map">🗺️ River Basin Map</button>
+    <button class="nav-tab" data-tab="survey">📝 Citizen Field Survey</button>
+    <button class="nav-tab" data-tab="dashboard">📊 Live Dashboard</button>
+    <button class="nav-tab" data-tab="plan">📋 Action Planner</button>
+  </nav>
+
+  <!-- Main Application Content Area -->
+  <main class="main-content">
+
+    <!-- ================= TAB 1: INTERACTIVE RIVER MAP ================= -->
+    <section id="tab-map" class="tab-pane active">
+      <div class="map-view-layout">
+        <div class="map-container">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+            <span style="font-size: 0.85rem; color: var(--text-muted);">
+              Click any station node on the river network to inspect telemetry &amp; report status:
+            </span>
+            <span style="font-size: 0.75rem; color: #38bdf8; font-weight: 600;">Interactive GIS Vector</span>
+          </div>
+          <div id="mapSvgHolder"></div>
+        </div>
+
+        <div class="station-details-card" id="stationDetailsCard">
+          <div style="text-align: center; padding: 2rem; color: var(--text-dim);">
+            Loading river stations...
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TAB 2: CITIZEN FIELD SURVEY ================= -->
+    <section id="tab-survey" class="tab-pane">
+      <div class="survey-layout">
+        
+        <!-- Form Left Column -->
+        <div class="survey-card">
+          <!-- Multilingual Audio Guide Banner -->
+          <div class="audio-guide-banner">
+            <div class="audio-guide-info">
+              <span style="font-size: 1.5rem;">🎧</span>
+              <div>
+                <strong style="color: #38bdf8; font-size: 0.9rem;">Module 1 Spoken Audio Guidance</strong>
+                <div style="font-size: 0.75rem; color: var(--text-muted);">Listen to field survey questions (Hindi / English)</div>
+              </div>
+            </div>
+            <button class="audio-btn" id="btnPlayAudioGuide" type="button">
+              ▶ Play Guide
+            </button>
+          </div>
+
+          <form id="citizenSurveyForm">
+            <div class="form-group">
+              <label class="form-label" for="surveyRiverSelect">Target River Reach *</label>
+              <select id="surveyRiverSelect" class="form-select" required>
+                <option value="">-- Choose River Reach --</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="surveyLocationName">Specific Ghat / Location Name</label>
+              <input type="text" id="surveyLocationName" class="form-input" placeholder="e.g. Assi Ghat steps, Near bridge pier, Outfall drain #3" />
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem;">
+              <div class="form-group">
+                <label class="form-label">Water Clarity</label>
+                <select id="surveyClaritySelect" class="form-select">
+                  <option value="clear">Clear</option>
+                  <option value="murky" selected>Murky</option>
+                  <option value="turbid">Turbid</option>
+                  <option value="foamy">Foamy</option>
+                  <option value="black">Pitch Black</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Flow Rate</label>
+                <select id="surveyFlowSelect" class="form-select">
+                  <option value="rapid">Rapid</option>
+                  <option value="normal" selected>Normal</option>
+                  <option value="sluggish">Sluggish</option>
+                  <option value="stagnant">Stagnant Pool</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Nearby Activity</label>
+                <select id="surveyActivitySelect" class="form-select">
+                  <option value="domestic_sewage" selected>Domestic Sewage</option>
+                  <option value="industrial">Industrial Units</option>
+                  <option value="agricultural">Agricultural Runoff</option>
+                  <option value="religious_offering">Floral/Pilgrim Offerings</option>
+                  <option value="mining">Sand Mining / Dredging</option>
+                  <option value="construction">Construction / Debris</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Observed Symptoms (Check all that apply)</label>
+              <div class="checkbox-chips">
+                <label class="chip-label"><input type="checkbox" name="symptom" value="chemical_odor"> Chemical Odor</label>
+                <label class="chip-label"><input type="checkbox" name="symptom" value="foam"> White Toxic Foam</label>
+                <label class="chip-label"><input type="checkbox" name="symptom" value="black_water"> Black / Septic Water</label>
+                <label class="chip-label"><input type="checkbox" name="symptom" value="fish_kill"> Dead Fish / Organisms</label>
+                <label class="chip-label"><input type="checkbox" name="symptom" value="plastic_waste"> Floating Plastic Heap</label>
+                <label class="chip-label"><input type="checkbox" name="symptom" value="algal_bloom"> Thick Green Algal Bloom</label>
+                <label class="chip-label"><input type="checkbox" name="symptom" value="drain_discharge"> Direct Drain Outfall</label>
+                <label class="chip-label"><input type="checkbox" name="symptom" value="sand_dredging"> Mechanized Sand Dredging</label>
+                <label class="chip-label"><input type="checkbox" name="symptom" value="siltation"> Severe Silt / Mud Choking</label>
+                <label class="chip-label"><input type="checkbox" name="symptom" value="bank_collapse"> Collapsing Riverbank</label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="surveyObservationText">Citizen Observation Notes *</label>
+              <textarea id="surveyObservationText" class="form-textarea" rows="3" placeholder="Describe what you see, odor, color, visible discharge pipes or animal impacts..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary" style="margin-top: 0.5rem;">
+              📤 Submit Citizen Observation (Offline-Safe)
+            </button>
+          </form>
+        </div>
+
+        <!-- Right Column: AI Live Prediction Card -->
+        <div>
+          <div class="ai-preview-card">
+            <h3 style="font-size: 1rem; color: #f8fafc; margin-bottom: 0.75rem;">Real-time AI Observation Insights</h3>
+            <div id="aiPredictionPreview">
+              <span style="font-size: 0.85rem; color: var(--text-dim);">
+                Start typing notes or selecting symptoms on the left to see instant classification and priority recommendations.
+              </span>
+            </div>
+          </div>
+
+          <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.25rem; margin-top: 1.25rem;">
+            <h4 style="font-size: 0.85rem; color: #2dd4bf; margin-bottom: 0.5rem;">📶 Offline PWA Guarantee</h4>
+            <p style="font-size: 0.78rem; color: var(--text-muted); line-height: 1.4;">
+              Field observations recorded without an active internet connection are securely saved in your browser's local cache. As soon as connectivity is restored, they automatically sync to the central decision room.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= TAB 3: LIVE DASHBOARD ================= -->
+    <section id="tab-dashboard" class="tab-pane">
+      <div class="kpi-row">
+        <div class="kpi-card">
+          <div class="kpi-title">Total Citizen Reports</div>
+          <div class="kpi-value" id="kpiTotalReports">0</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-title">Critical River Reaches</div>
+          <div class="kpi-value" id="kpiCriticalStretches" style="color: #f87171;">0</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-title">Community Champions</div>
+          <div class="kpi-value" id="kpiActiveVolunteers" style="color: #34d399;">3,280</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-title">Offline Sync Health</div>
+          <div class="kpi-value" id="kpiSyncHealth" style="color: #38bdf8;">100%</div>
+        </div>
+      </div>
+
+      <div class="dashboard-grid">
+        <!-- Category Distribution -->
+        <div class="chart-card">
+          <h3 style="font-size: 1rem; color: #38bdf8; margin-bottom: 1rem;">Pollution Category Distribution</h3>
+          <div id="dashboardCategoryBars">
+            <span style="color: var(--text-dim); font-size: 0.85rem;">Loading categories...</span>
+          </div>
+        </div>
+
+        <!-- Severity Breakdown -->
+        <div class="chart-card">
+          <h3 style="font-size: 1rem; color: #2dd4bf; margin-bottom: 1rem;">Severity &amp; Risk Breakdown</h3>
+          <div id="dashboardSeverityBars">
+            <span style="color: var(--text-dim); font-size: 0.85rem;">Loading severities...</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Citizen Stream -->
+      <div class="chart-card" style="margin-top: 1.5rem;">
+        <h3 style="font-size: 1rem; color: #f8fafc; margin-bottom: 1rem;">Live Citizen Observations Stream</h3>
+        <div id="dashboardRecentStream">
+          <span style="color: var(--text-dim); font-size: 0.85rem;">Loading observation stream...</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TAB 4: ACTION PLANNER ================= -->
+    <section id="tab-plan" class="tab-pane">
+      <div class="plan-container">
+        <!-- Configuration Card -->
+        <div class="survey-card" style="height: fit-content;">
+          <h3 style="font-size: 1.05rem; color: #38bdf8; margin-bottom: 1rem;">Generate Action Roadmap</h3>
+          <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+            Synthesize field telemetry, ML classification, and symptom co-occurrence signals to produce an actionable multi-stakeholder remediation plan.
+          </p>
+
+          <div class="form-group">
+            <label class="form-label" for="planRiverSelect">Select Monitored River</label>
+            <select id="planRiverSelect" class="form-select"></select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="planCategorySelect">Target Pollution Pressure (Optional)</label>
+            <select id="planCategorySelect" class="form-select">
+              <option value="">Auto-Detect from Telemetry</option>
+              <option value="Industrial Effluents">Industrial Effluents</option>
+              <option value="Domestic Sewage & Outfalls">Domestic Sewage &amp; Outfalls</option>
+              <option value="Solid Waste & Plastic Dumping">Solid Waste &amp; Plastic Dumping</option>
+              <option value="Agricultural Runoff & Siltation">Agricultural Runoff &amp; Siltation</option>
+              <option value="Illegal Sand Mining & Encroachment">Illegal Sand Mining &amp; Encroachment</option>
+            </select>
+          </div>
+
+          <button class="btn-primary" onclick="generateActionPlan()" style="margin-top: 0.5rem;">
+            ⚡ Generate Rejuvenation Plan
+          </button>
+        </div>
+
+        <!-- Plan Result Card -->
+        <div class="survey-card" id="planOutputResult">
+          <div style="text-align: center; padding: 3rem; color: var(--text-dim);">
+            Select a river on the left and click <strong>Generate Rejuvenation Plan</strong> to formulate a structured remediation roadmap.
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Hidden audio element for M1.opus -->
+  <audio id="moduleAudioPlayer" src="/static/audio/M1.opus" preload="auto"></audio>
+
+  <!-- Toast Notification Holder -->
+  <div id="toastNotification"></div>
+
+  <!-- Main JavaScript App -->
+  <script src="/static/app.js"></script>
+</body>
+</html>

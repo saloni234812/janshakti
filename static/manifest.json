@@ -1,0 +1,31 @@
+{
+  "name": "JanaShakti - Citizen River Intelligence",
+  "short_name": "JanaShakti",
+  "description": "Participatory river monitoring, offline citizen observations, and automated rejuvenation action planning.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#091421",
+  "theme_color": "#0f766e",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/static/map.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["utilities", "government", "environment"],
+  "shortcuts": [
+    {
+      "name": "Report Issue",
+      "url": "/#survey",
+      "description": "Record an offline river observation"
+    },
+    {
+      "name": "River Map",
+      "url": "/#map",
+      "description": "Explore live river health basin map"
+    }
+  ]
+}

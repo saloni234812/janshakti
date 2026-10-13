@@ -1,0 +1,634 @@
+{
+  "unique_symptoms_count": 147,
+  "total_records_analyzed": 60,
+  "pairwise_cooccurrences": [
+    {
+      "symptom_a": "chemical_odor",
+      "symptom_b": "foam",
+      "cooccurrence_count": 2,
+      "jaccard_similarity": 0.5
+    },
+    {
+      "symptom_a": "toxic_froth",
+      "symptom_b": "white_foam",
+      "cooccurrence_count": 2,
+      "jaccard_similarity": 1.0
+    },
+    {
+      "symptom_a": "drain_discharge",
+      "symptom_b": "foul_odor",
+      "cooccurrence_count": 2,
+      "jaccard_similarity": 0.5
+    },
+    {
+      "symptom_a": "shallow_channel",
+      "symptom_b": "siltation",
+      "cooccurrence_count": 2,
+      "jaccard_similarity": 1.0
+    },
+    {
+      "symptom_a": "chemical_odor",
+      "symptom_b": "fish_kill",
+      "cooccurrence_count": 1,
+      "jaccard_similarity": 0.25
+    },
+    {
+      "symptom_a": "black_water",
+      "symptom_b": "chemical_odor",
+      "cooccurrence_count": 1,
+      "jaccard_similarity": 0.167
+    },
+    {
+      "symptom_a": "fish_kill",
+      "symptom_b": "foam",
+      "cooccurrence_count": 1,
+      "jaccard_similarity": 0.25
+    },
+    {
+      "symptom_a": "black_water",
+      "symptom_b": "foam",
+      "cooccurrence_count": 1,
+      "jaccard_similarity": 0.167
+    },
+    {
+      "symptom_a": "black_water",
+      "symptom_b": "fish_kill",
+      "cooccurrence_count": 1,
+      "jaccard_similarity": 0.2
+    },
+    {
+      "symptom_a": "chemical_odor",
+      "symptom_b": "discolored_water",
+      "cooccurrence_count": 1,
+      "jaccard_similarity": 0.333
+    },
+    {
+      "symptom_a": "discolored_water",
+      "symptom_b": "foam",
+      "cooccurrence_count": 1,
+      "jaccard_similarity": 0.333
+    },
+    {
+      "symptom_a": "ammonia_odor",
+      "symptom_b": "white_foam",
+      "cooccurrence_count": 1,
+      "jaccard_similarity": 0.5
+    },
+    {
+      "symptom_a": "ammonia_odor",
+      "symptom_b": "toxic_froth",
+      "cooccurrence_count": 1,
+      "jaccard_similarity": 0.5
+    },
+    {
+      "symptom_a": "black_sludge",
+      "symptom_b": "drain_discharge",
+      "cooccurrence_count": 1,
+      "jaccard_similarity": 0.5
+    },
+    {
+      "symptom_a": "black_sludge",
+      "symptom_b": "foul_odor",
+      "cooccurrence_count": 1,
+      "jaccard_similarity": 0.25
+    },
+    {
+      "symptom_a": "floating_garbage",
+      "symptom_b": "plastic_waste",
+      "cooccurrence_count": 1,
+      "jaccard_similarity": 0.333
+    },
+    {
+      "symptom_a": "bank_litter",
+      "symptom_b": "plastic_waste",
+      "cooccurrence_count": 1,
+      "jaccard_similarity": 0.333
+    },
+    {
+      "symptom_a": "bank_litter",
+      "symptom_b": "floating_garbage",
+      "cooccurrence_count": 1,
+      "jaccard_similarity": 1.0
+    },
+    {
+      "symptom_a": "murky_water",
+      "symptom_b": "plastic_waste",
+      "cooccurrence_count": 1,
+      "jaccard_similarity": 0.25
+    },
+    {
+      "symptom_a": "organic_debris",
+      "symptom_b": "plastic_waste",
+      "cooccurrence_count": 1,
+      "jaccard_similarity": 0.333
+    },
+    {
+      "symptom_a": "murky_water",
+      "symptom_b": "organic_debris",
+      "cooccurrence_count": 1,
+      "jaccard_similarity": 0.5
+    },
+    {
+      "symptom_a": "algal_bloom",
+      "symptom_b": "pesticide_sheen",
+      "cooccurrence_count": 1,
+      "jaccard_similarity": 1.0
+    },
+    {
+      "symptom_a": "algal_bloom",
+      "symptom_b": "green_film",
+      "cooccurrence_count": 1,
+      "jaccard_similarity": 1.0
+    },
+    {
+      "symptom_a": "green_film",
+      "symptom_b": "pesticide_sheen",
+      "cooccurrence_count": 1,
+      "jaccard_similarity": 1.0
+    },
+    {
+      "symptom_a": "bank_collapse",
+      "symptom_b": "sand_dredging",
+      "cooccurrence_count": 1,
+      "jaccard_similarity": 0.5
+    }
+  ],
+  "symptom_category_probabilities": {
+    "black_water": {
+      "Industrial Effluents": 0.5,
+      "Domestic Sewage & Outfalls": 0.5
+    },
+    "chemical_odor": {
+      "Industrial Effluents": 1.0
+    },
+    "foam": {
+      "Industrial Effluents": 1.0
+    },
+    "fish_kill": {
+      "Industrial Effluents": 1.0
+    },
+    "discolored_water": {
+      "Industrial Effluents": 1.0
+    },
+    "white_foam": {
+      "Industrial Effluents": 1.0
+    },
+    "ammonia_odor": {
+      "Industrial Effluents": 1.0
+    },
+    "toxic_froth": {
+      "Industrial Effluents": 1.0
+    },
+    "black_sludge": {
+      "Domestic Sewage & Outfalls": 1.0
+    },
+    "foul_odor": {
+      "Domestic Sewage & Outfalls": 0.75,
+      "Solid Waste & Plastic Dumping": 0.25
+    },
+    "drain_discharge": {
+      "Domestic Sewage & Outfalls": 1.0
+    },
+    "plastic_waste": {
+      "Solid Waste & Plastic Dumping": 1.0
+    },
+    "floating_garbage": {
+      "Solid Waste & Plastic Dumping": 1.0
+    },
+    "bank_litter": {
+      "Solid Waste & Plastic Dumping": 1.0
+    },
+    "organic_debris": {
+      "Solid Waste & Plastic Dumping": 1.0
+    },
+    "murky_water": {
+      "Solid Waste & Plastic Dumping": 1.0
+    },
+    "algal_bloom": {
+      "Agricultural Runoff & Siltation": 1.0
+    },
+    "green_film": {
+      "Agricultural Runoff & Siltation": 1.0
+    },
+    "pesticide_sheen": {
+      "Agricultural Runoff & Siltation": 1.0
+    },
+    "sand_dredging": {
+      "Illegal Sand Mining & Encroachment": 1.0
+    },
+    "bank_collapse": {
+      "Illegal Sand Mining & Encroachment": 1.0
+    },
+    "machinery_oil": {
+      "Illegal Sand Mining & Encroachment": 1.0
+    },
+    "siltation": {
+      "Agricultural Runoff & Siltation": 1.0
+    },
+    "shallow_channel": {
+      "Agricultural Runoff & Siltation": 1.0
+    },
+    "muddy_water": {
+      "Agricultural Runoff & Siltation": 1.0
+    },
+    "dye_colored_water": {
+      "Industrial Effluents": 1.0
+    },
+    "solvent_odor": {
+      "Industrial Effluents": 1.0
+    },
+    "chemical_scum": {
+      "Industrial Effluents": 1.0
+    },
+    "oily_film": {
+      "Domestic Sewage & Outfalls": 1.0
+    },
+    "debris_dumping": {
+      "Illegal Sand Mining & Encroachment": 1.0
+    },
+    "floodplain_loss": {
+      "Illegal Sand Mining & Encroachment": 1.0
+    },
+    "rubble": {
+      "Illegal Sand Mining & Encroachment": 1.0
+    },
+    "septic_bubbles": {
+      "Domestic Sewage & Outfalls": 1.0
+    },
+    "methane_odor": {
+      "Domestic Sewage & Outfalls": 1.0
+    },
+    "minor_litter": {
+      "Solid Waste & Plastic Dumping": 1.0
+    },
+    "clear_water": {
+      "Solid Waste & Plastic Dumping": 1.0
+    },
+    "plastic_bottles": {
+      "Domestic Sewage & Outfalls": 0.5,
+      "Solid Waste & Plastic Dumping": 0.5
+    },
+    "green_scum": {
+      "Domestic Sewage & Outfalls": 1.0
+    },
+    "mosquitoes": {
+      "Domestic Sewage & Outfalls": 0.5,
+      "Illegal Sand Mining & Encroachment": 0.5
+    },
+    "detergent_foam": {
+      "Domestic Sewage & Outfalls": 1.0
+    },
+    "grey_water": {
+      "Domestic Sewage & Outfalls": 1.0
+    },
+    "turbidity": {
+      "Domestic Sewage & Outfalls": 1.0
+    },
+    "yellow_water": {
+      "Industrial Effluents": 1.0
+    },
+    "sulfite_odor": {
+      "Industrial Effluents": 1.0
+    },
+    "heavy_machinery": {
+      "Illegal Sand Mining & Encroachment": 1.0
+    },
+    "habitat_loss": {
+      "Illegal Sand Mining & Encroachment": 1.0
+    },
+    "clear_flow": {
+      "Solid Waste & Plastic Dumping": 1.0
+    },
+    "minimal_litter": {
+      "Solid Waste & Plastic Dumping": 1.0
+    },
+    "chemical_fumes": {
+      "Industrial Effluents": 1.0
+    },
+    "bleach_odor": {
+      "Industrial Effluents": 1.0
+    },
+    "discoloration": {
+      "Industrial Effluents": 1.0
+    },
+    "normal_flow": {
+      "Agricultural Runoff & Siltation": 1.0
+    },
+    "mild_dust": {
+      "Agricultural Runoff & Siltation": 1.0
+    },
+    "bank_erosion": {
+      "Agricultural Runoff & Siltation": 1.0
+    },
+    "heavy_silt": {
+      "Agricultural Runoff & Siltation": 1.0
+    },
+    "turbid_current": {
+      "Agricultural Runoff & Siltation": 1.0
+    },
+    "soap_scum": {
+      "Domestic Sewage & Outfalls": 1.0
+    },
+    "drain_outflow": {
+      "Domestic Sewage & Outfalls": 1.0
+    },
+    "plastic_choke": {
+      "Solid Waste & Plastic Dumping": 1.0
+    },
+    "rotting_debris": {
+      "Solid Waste & Plastic Dumping": 1.0
+    },
+    "good_flow": {
+      "Solid Waste & Plastic Dumping": 1.0
+    },
+    "pebble_bed": {
+      "Solid Waste & Plastic Dumping": 1.0
+    },
+    "foul_smell": {
+      "Domestic Sewage & Outfalls": 1.0
+    },
+    "sewer_line": {
+      "Domestic Sewage & Outfalls": 1.0
+    },
+    "metallic_sheen": {
+      "Industrial Effluents": 1.0
+    },
+    "acidic_smell": {
+      "Industrial Effluents": 1.0
+    },
+    "toxic_scum": {
+      "Industrial Effluents": 1.0
+    },
+    "green_tint": {
+      "Solid Waste & Plastic Dumping": 1.0
+    },
+    "microplastics": {
+      "Solid Waste & Plastic Dumping": 1.0
+    },
+    "stagnant_pool": {
+      "Illegal Sand Mining & Encroachment": 1.0
+    },
+    "algae_mat": {
+      "Illegal Sand Mining & Encroachment": 1.0
+    },
+    "encroachment": {
+      "Illegal Sand Mining & Encroachment": 1.0
+    },
+    "garbage_dump": {
+      "Illegal Sand Mining & Encroachment": 1.0
+    },
+    "narrow_channel": {
+      "Illegal Sand Mining & Encroachment": 1.0
+    },
+    "discarded_nets": {
+      "Solid Waste & Plastic Dumping": 1.0
+    },
+    "plastic_litter": {
+      "Solid Waste & Plastic Dumping": 1.0
+    },
+    "wildlife_risk": {
+      "Solid Waste & Plastic Dumping": 1.0
+    },
+    "clean_water": {
+      "Solid Waste & Plastic Dumping": 0.5,
+      "Agricultural Runoff & Siltation": 0.5
+    },
+    "steady_flow": {
+      "Solid Waste & Plastic Dumping": 1.0
+    },
+    "pesticide_odor": {
+      "Agricultural Runoff & Siltation": 1.0
+    },
+    "dead_mollusks": {
+      "Agricultural Runoff & Siltation": 1.0
+    },
+    "chemical_sheen": {
+      "Agricultural Runoff & Siltation": 1.0
+    },
+    "purple_water": {
+      "Industrial Effluents": 1.0
+    },
+    "sulfuric_smell": {
+      "Industrial Effluents": 1.0
+    },
+    "zero_aquatic_life": {
+      "Industrial Effluents": 1.0
+    },
+    "silt_deposit": {
+      "Agricultural Runoff & Siltation": 1.0
+    },
+    "drain_overflow": {
+      "Domestic Sewage & Outfalls": 1.0
+    },
+    "grey_sludge": {
+      "Domestic Sewage & Outfalls": 1.0
+    },
+    "tea_colored_water": {
+      "Industrial Effluents": 1.0
+    },
+    "organic_liquor": {
+      "Industrial Effluents": 1.0
+    },
+    "red_water": {
+      "Industrial Effluents": 1.0
+    },
+    "froth": {
+      "Industrial Effluents": 1.0
+    },
+    "trapped_plastic": {
+      "Solid Waste & Plastic Dumping": 1.0
+    },
+    "ash_residue": {
+      "Domestic Sewage & Outfalls": 1.0
+    },
+    "grey_sediment": {
+      "Domestic Sewage & Outfalls": 1.0
+    },
+    "sluggish_flow": {
+      "Domestic Sewage & Outfalls": 1.0
+    },
+    "toxic_foam": {
+      "Industrial Effluents": 1.0
+    },
+    "zero_do": {
+      "Industrial Effluents": 1.0
+    },
+    "pungent_stench": {
+      "Industrial Effluents": 1.0
+    },
+    "fuel_sheen": {
+      "Industrial Effluents": 1.0
+    },
+    "petrol_smell": {
+      "Industrial Effluents": 1.0
+    },
+    "oil_film": {
+      "Industrial Effluents": 1.0
+    },
+    "heavy_mud": {
+      "Agricultural Runoff & Siltation": 1.0
+    },
+    "coal_slurry": {
+      "Industrial Effluents": 1.0
+    },
+    "sediment_blanket": {
+      "Industrial Effluents": 1.0
+    },
+    "floating_wrappers": {
+      "Solid Waste & Plastic Dumping": 1.0
+    },
+    "river_eddy": {
+      "Solid Waste & Plastic Dumping": 1.0
+    },
+    "green_algae": {
+      "Domestic Sewage & Outfalls": 1.0
+    },
+    "mild_odor": {
+      "Domestic Sewage & Outfalls": 1.0
+    },
+    "warm_water": {
+      "Domestic Sewage & Outfalls": 1.0
+    },
+    "smooth_flow": {
+      "Agricultural Runoff & Siltation": 1.0
+    },
+    "historic_weir": {
+      "Agricultural Runoff & Siltation": 1.0
+    },
+    "flower_waste": {
+      "Solid Waste & Plastic Dumping": 1.0
+    },
+    "plastic_bags": {
+      "Solid Waste & Plastic Dumping": 1.0
+    },
+    "crowded_water": {
+      "Solid Waste & Plastic Dumping": 1.0
+    },
+    "black_silt": {
+      "Domestic Sewage & Outfalls": 1.0
+    },
+    "sulfide_odor": {
+      "Domestic Sewage & Outfalls": 1.0
+    },
+    "open_sewer": {
+      "Domestic Sewage & Outfalls": 1.0
+    },
+    "forest_stream": {
+      "Solid Waste & Plastic Dumping": 1.0
+    },
+    "crystal_clean": {
+      "Solid Waste & Plastic Dumping": 1.0
+    },
+    "high_oxygen": {
+      "Solid Waste & Plastic Dumping": 1.0
+    },
+    "shore_litter": {
+      "Solid Waste & Plastic Dumping": 1.0
+    },
+    "clear_reservoir": {
+      "Solid Waste & Plastic Dumping": 1.0
+    },
+    "chemical_mixture": {
+      "Industrial Effluents": 1.0
+    },
+    "oil_slicks": {
+      "Industrial Effluents": 1.0
+    },
+    "salty_chemical_odor": {
+      "Industrial Effluents": 1.0
+    },
+    "molasses_leak": {
+      "Industrial Effluents": 1.0
+    },
+    "brown_froth": {
+      "Industrial Effluents": 1.0
+    },
+    "suffocating_odor": {
+      "Industrial Effluents": 1.0
+    },
+    "medicinal_smell": {
+      "Industrial Effluents": 1.0
+    },
+    "grey_discoloration": {
+      "Industrial Effluents": 1.0
+    },
+    "scum": {
+      "Industrial Effluents": 1.0
+    },
+    "machine_oil": {
+      "Industrial Effluents": 1.0
+    },
+    "solvent_smell": {
+      "Industrial Effluents": 1.0
+    },
+    "black_film": {
+      "Industrial Effluents": 1.0
+    },
+    "diesel_sheen": {
+      "Industrial Effluents": 1.0
+    },
+    "fuel_odor": {
+      "Industrial Effluents": 1.0
+    },
+    "ferry_exhaust": {
+      "Industrial Effluents": 1.0
+    },
+    "healthy_mangroves": {
+      "Agricultural Runoff & Siltation": 1.0
+    },
+    "clear_tidal_flow": {
+      "Agricultural Runoff & Siltation": 1.0
+    },
+    "rich_wildlife": {
+      "Agricultural Runoff & Siltation": 1.0
+    },
+    "pesticide_runoff": {
+      "Agricultural Runoff & Siltation": 1.0
+    },
+    "bird_habitat_risk": {
+      "Agricultural Runoff & Siltation": 1.0
+    },
+    "algal_film": {
+      "Agricultural Runoff & Siltation": 1.0
+    },
+    "low_flow": {
+      "Agricultural Runoff & Siltation": 1.0
+    },
+    "mossy_pools": {
+      "Agricultural Runoff & Siltation": 1.0
+    },
+    "sun_heated": {
+      "Agricultural Runoff & Siltation": 1.0
+    }
+  },
+  "activity_severity_probabilities": {
+    "industrial": {
+      "Critical": 0.75,
+      "High": 0.25
+    },
+    "domestic_sewage": {
+      "High": 0.462,
+      "Critical": 0.231,
+      "Medium": 0.231,
+      "Low": 0.077
+    },
+    "religious_offering": {
+      "Medium": 0.417,
+      "Low": 0.583
+    },
+    "agricultural": {
+      "High": 0.455,
+      "Medium": 0.364,
+      "Low": 0.182
+    },
+    "mining": {
+      "High": 0.333,
+      "Critical": 0.667
+    },
+    "construction": {
+      "High": 0.2,
+      "Low": 0.2,
+      "Medium": 0.6
+    }
+  }
+}
